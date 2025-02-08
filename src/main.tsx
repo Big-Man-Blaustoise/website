@@ -1,10 +1,36 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { MantineProvider } from "@mantine/core";
+import "@mantine/core/styles.css";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import DeleteAccountPage from "./pages/DeleteAccountPage.tsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
+import NotFound from "./pages/error/NotFound.tsx";
+import LandingPage from "./pages/landing/index.tsx";
+import Layout from "./pages/layout.tsx";
+import OurTeam from "./pages/our-team/index.tsx";
+import Reports from "./pages/reports/Reports.tsx";
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { path: "/", element: <LandingPage /> },
+      // { path: "/about-us", element: <AboutUs /> },
+      { path: "/reports", element: <Reports /> },
+      { path: "/team", element: <OurTeam /> },
+      { path: "/privacy", element: <PrivacyPolicy /> },
+      { path: "/data", element: <DeleteAccountPage /> },
+    ],
+  },
+  { path: "*", element: <NotFound /> },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <MantineProvider>
+      <RouterProvider router={router} />
+    </MantineProvider>
+  </React.StrictMode>
+);

@@ -1,0 +1,119 @@
+.wrapper {
+  position: relative;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background-color: #F5F6F7;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 68px;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+  color: #121212;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+}
+
+.description {
+  margin-top: var(--mantine-spacing-xl);
+  font-size: 24px;
+  color: #6D6E71;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 18px;
+  }
+}
+
+.controls {
+  margin-top: var(--mantine-spacing-xl) * 2;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    margin-top: var(--mantine-spacing-xl);
+  }
+}
+
+.control {
+  height: 54px;
+  padding-left: 38px;
+  padding-right: 38px;
+  background-color: #C41230;
+  border-color: #C41230;
+
+  &[data-variant="outline"] {
+    background-color: transparent;
+    color: #C41230;
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    height: 54px;
+    padding-left: 18px;
+    padding-right: 18px;
+    flex: 1;
+  }
+}
+
+.highlight {
+  position: relative;
+  color: #C41230;
+  background: none;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+}
+
+.carousel {
+  margin-top: var(--mantine-spacing-xl) * 3;
+}
+
+.screenshot {
+  border-radius: var(--mantine-radius-md);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 200ms ease;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  height: 600px;
+  width: 100%;
+  object-fit: cover;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  img {
+    border-radius: var(--mantine-radius-md);
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.indicators {
+  bottom: -2rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 4px;
+  transition: width 250ms ease;
+  background-color: #E0E0E0;
+
+  &[data-active] {
+    width: 40px;
+    background-color: #C41230;
+  }
+}
